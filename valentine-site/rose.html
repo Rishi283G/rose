@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rose Day Surprise</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(to bottom, #ffe6f2, #ffccdd);
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-family: "Great Vibes", cursive;
+        font-size: 3.5rem;
+        color: #b30047;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      p.subtitle {
+        font-size: 1.3rem;
+        color: #730033;
+        font-weight: 600;
+      }
+
+      .container {
+        background: #fff5fa;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        max-width: 500px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      button {
+        background-color: #ff4d94;
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      button:hover {
+        background-color: #ff1a75;
+        transform: translateY(-3px);
+      }
+
+      .surprise {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+        animation: reveal 1s ease;
+      }
+
+      .surprise img {
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .surprise p {
+        margin-top: 15px;
+        font-size: 1.3rem;
+        color: #730033;
+        font-style: italic;
+      }
+
+      .rose-animation {
+        position: absolute;
+        top: -50px;
+        width: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .rose {
+        width: 40px;
+        position: absolute;
+        animation: fall 6s linear infinite;
+        opacity: 0.7;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fall {
+        0% {
+          top: -50px;
+          left: calc(100% * var(--pos));
+          transform: rotate(0deg);
+        }
+        100% {
+          top: 100vh;
+          left: calc(100% * var(--pos));
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Happy Rose Day!</h1>
+      <p class="subtitle">
+        A day to express love and warmth with a simple rose.
+      </p>
+    </header>
+
+    <div class="container">
+      <p>Click below to reveal a beautiful surprise!</p>
+      <button onclick="revealSurprise()">Reveal Surprise</button>
+
+      <div class="surprise" id="surprise">
+        <img
+          src="https://i.pinimg.com/736x/1b/6c/a9/1b6ca917a7a226721bfa946e4fc2eeda.jpg"
+          alt="Your Surprise Image"
+          id="surpriseImage"
+        />
+        <p id="surpriseText">Here goes your beautiful message or quote.</p>
+      </div>
+    </div>
+
+    <div class="rose-animation">
+      <img
+        src="https://i.pinimg.com/736x/61/79/68/617968e1f07899216158e270e9f36267.jpg"
+        alt="Rose"
+        class="rose"
+        style="--pos: 0.1"
+      />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Rose_flower.svg/1200px-Rose_flower.svg.png"
+        alt="Rose"
+        class="rose"
+        style="--pos: 0.3"
+      />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Rose_flower.svg/1200px-Rose_flower.svg.png"
+        alt="Rose"
+        class="rose"
+        style="--pos: 0.5"
+      />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Rose_flower.svg/1200px-Rose_flower.svg.png"
+        alt="Rose"
+        class="rose"
+        style="--pos: 0.7"
+      />
+    </div>
+
+    <script>
+      function revealSurprise() {
+        const surpriseSection = document.getElementById("surprise");
+        const surpriseImage = document.getElementById("surpriseImage");
+        const surpriseText = document.getElementById("surpriseText");
+
+        // Add your custom image and message here
+        surpriseImage.src = "path-to-your-image.jpg"; // Replace with your rose image
+        surpriseText.textContent =
+          "A rose speaks of love silently, in a language known only to the heart.";
+
+        surpriseSection.style.display = "block";
+      }
+    </script>
+  </body>
+</html>
